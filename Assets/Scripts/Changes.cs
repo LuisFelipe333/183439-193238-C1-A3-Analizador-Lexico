@@ -10,10 +10,13 @@ public class Changes : MonoBehaviour
     InputField mainInputField;
     public Text outputText;
 
+    public bool correctLex;
+
     void Start()
     {
         mainInputField=gameObject.GetComponent<InputField>();
         mainInputField.onValueChanged.AddListener(delegate{ValueChanged();});
+        correctLex=false;
     }
 
     bool checkRegex(string regex,string token)
@@ -41,6 +44,7 @@ public class Changes : MonoBehaviour
 
         string[] tokens=tokensAux.Split(' ');
         outputText.text="";
+        correctLex=true;
         foreach(string i in tokens)
         {
             if(i.Length>0)
@@ -75,6 +79,7 @@ public class Changes : MonoBehaviour
                                         else
                                         {
                                             outputText.text+="Token Desconocido         Valor:"+ i;   
+                                            correctLex=false;
                                         }
                                     }
                                 }

@@ -13,6 +13,7 @@ public class AnalizadorSintactico : MonoBehaviour
     InputField mainInputField;
     public Text outputText;
 
+    bool correctSintax;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,22 @@ public class AnalizadorSintactico : MonoBehaviour
     public void checkSintax()
     {
         //separateChains();
-        Analizador parser = new Analizador(separateChains());
-        print(parser.NonRecursivePredictive());
+        if(mainInputField.GetComponent<Changes>().correctLex)
+        {
+            Analizador parser = new Analizador(separateChains());
+            correctSintax=parser.NonRecursivePredictive();
+            if(correctSintax)
+                outputText.text="Sintaxis correcta";
+            else
+                outputText.text="Sintaxis incorrecta";
+
+        }
+        else
+        {
+            outputText.text="Léxico incorrecta";
+        }
+        
+
+    
     }
 }

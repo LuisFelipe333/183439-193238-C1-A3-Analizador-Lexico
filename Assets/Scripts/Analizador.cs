@@ -158,10 +158,10 @@ public class Analizador
 			}
 
             tokenAsItems.Add(new TableItem(false, "$"));     
-            foreach(TableItem i in tokenAsItems)
-            {
-                 Debug.Log("A:"+i._value);
-            }
+            // foreach(TableItem i in tokenAsItems)
+            // {
+            //      Debug.Log("A:"+i._value);
+            // }
 
 
 		}
@@ -336,24 +336,24 @@ public class Analizador
             //     Debug.Log(i);
             // }
 
-            foreach(TableItem i in tokenAsItems)
-            {
-                 Debug.Log("B:"+i._value);
-            }
+            // foreach(TableItem i in tokenAsItems)
+            // {
+            //      Debug.Log("B:"+i._value);
+            // }
 
 			do
 			{
 				if (x._isTerminal)
 				{
-                    Debug.Log("Comparacion X: "+x._value+","+x._isTerminal+" y A:"+ a._value);
+                    // Debug.Log("Comparacion X: "+x._value+","+x._isTerminal+" y A:"+ a._value);
 					if (x._value == a._value || x._value == "$")
 					{
 						_stack.Pop();
 						tokenAsItems.Remove(a);
 						a = tokenAsItems[0];
-                        foreach(TableItem i in _stack)
-                            Debug.Log("valores pila: "+i._value);
-                        Debug.Log("X igual A");
+                        // foreach(TableItem i in _stack)
+                        //     Debug.Log("valores pila: "+i._value);
+                        // Debug.Log("X igual A");
 					}
 					else
 					{
@@ -364,7 +364,7 @@ public class Analizador
 				}
 				else
 				{
-                    Debug.Log("Valor x: "+x._value+" y valor a: "+a._value);
+                    // Debug.Log("Valor x: "+x._value+" y valor a: "+a._value);
 					Tuple<TableItem, TableItem> key = new Tuple<TableItem, TableItem>(x, a);
 					if (x._value != "")
 					{
@@ -376,8 +376,9 @@ public class Analizador
 						}
 						else
 						{
+                            Debug.Log("valores error pila: ");
                             foreach(TableItem i in _stack)
-                                Debug.Log("valores error pila: "+i._value);
+                                Debug.Log(i._value);
 							return false;
 						}
 					}
