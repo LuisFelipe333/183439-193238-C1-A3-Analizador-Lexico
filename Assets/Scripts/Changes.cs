@@ -34,7 +34,8 @@ public class Changes : MonoBehaviour
         string tokensAux=mainInputField.text.ToString().Replace("("," ( ").Replace(")"," ) ").Replace("{"," { ").Replace("}"," } ").Replace(","," , "); //remplazando delimitadores
         tokensAux=tokensAux.Replace("+"," + ").Replace("-"," - ").Replace("*"," * ").Replace("/"," / ").Replace("="," = "); //Remplazando operadores aritmeticos
         tokensAux=tokensAux.Replace("<"," < ").Replace(">"," > "); //operadores relacionales 
-        tokensAux=tokensAux.Replace("\n"," ").Replace("\t"," ");     
+        tokensAux=tokensAux.Replace("\n"," ").Replace("\t"," ");  
+        //tokensAux=tokensAux.Replace("presiona (","presiona(");   
 
 
 
@@ -52,7 +53,7 @@ public class Changes : MonoBehaviour
                         outputText.text+="Token: Tipo de dato           Valor:"+ i;
                     else
                     {
-                        if(checkRegex(@"^\(|^\)|^\{|^\}|^,",i))                                                    //regex delimitadores
+                        if(checkRegex(@"^\(|^\)|^{|^\}|^,",i))                                                    //regex delimitadores
                             outputText.text+="Token: Delimitador            Valor:"+ i;
                         else
                         {
@@ -87,7 +88,7 @@ public class Changes : MonoBehaviour
             }
 
                 
-            Debug.Log(i.Length);
+            //Debug.Log(i.Length);
         }
     }
 }
