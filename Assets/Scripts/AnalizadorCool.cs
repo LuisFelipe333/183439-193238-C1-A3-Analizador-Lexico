@@ -179,10 +179,10 @@ public class AnalizadorCool
            // _table.Add(new Tuple<TableItem, TableItem>(new TableItem(false, ""), new TableItem(true, "")), new Stack<TableItem>(new List<TableItem>() { new TableItem(true, ""), new TableItem(true, "") }));
 
            _table.Add(new Tuple<TableItem, TableItem>(new TableItem(false, "S"), new TableItem(true, "si")), new Stack<TableItem>(new List<TableItem>() { new TableItem(false, "IF"), new TableItem(false, "RESTOACCION"), new TableItem(true, "$") }));
-           Debug.Log("aaaa");
+           //Debug.Log("aaaa");
            foreach(string i in letrasMin)
            {
-           Debug.Log("eeeee "+i);    
+           //Debug.Log("eeeee "+i);    
            _table.Add(new Tuple<TableItem, TableItem>(new TableItem(false, "S"), new TableItem(true, i)), new Stack<TableItem>(new List<TableItem>() { new TableItem(false, "DECLARACION"), new TableItem(false, "RESTOACCION"), new TableItem(true, "$") }));
            }
            foreach(string i in letrasMa)
@@ -256,6 +256,7 @@ public class AnalizadorCool
             _table.Add(new Tuple<TableItem, TableItem>(new TableItem(false, "NR"), new TableItem(true, ")")), new Stack<TableItem>(new List<TableItem>() { new TableItem(false, "") }));
             _table.Add(new Tuple<TableItem, TableItem>(new TableItem(false, "NR"), new TableItem(true, ",")), new Stack<TableItem>(new List<TableItem>() { new TableItem(false, "") }));
 
+            _table.Add(new Tuple<TableItem, TableItem>(new TableItem(false, "NR"), new TableItem(true, "$")), new Stack<TableItem>(new List<TableItem>() { new TableItem(false, "") }));
             //////
 
             foreach(string i in digits)
@@ -337,15 +338,15 @@ public class AnalizadorCool
 			{
 				if (x._isTerminal)
 				{
-                    // Debug.Log("Comparacion X: "+x._value+","+x._isTerminal+" y A:"+ a._value);
+                     Debug.Log("Comparacion X: "+x._value+","+x._isTerminal+" y A:"+ a._value);
 					if (x._value == a._value || x._value == "$")
 					{
 						_stack.Pop();
 						tokenAsItems.Remove(a);
 						a = tokenAsItems[0];
-                        // foreach(TableItem i in _stack)
-                        //     Debug.Log("valores pila: "+i._value);
-                        // Debug.Log("X igual A");
+                         foreach(TableItem i in _stack)
+                             Debug.Log("valores pila: "+i._value);
+                         Debug.Log("X igual A");
 					}
 					else
 					{
@@ -356,7 +357,7 @@ public class AnalizadorCool
 				}
 				else
 				{
-                    // Debug.Log("Valor x: "+x._value+" y valor a: "+a._value);
+                    Debug.Log("Valor x: "+x._value+" y valor a: "+a._value);
 					Tuple<TableItem, TableItem> key = new Tuple<TableItem, TableItem>(x, a);
 					if (x._value != "")
 					{
