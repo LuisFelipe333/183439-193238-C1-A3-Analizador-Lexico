@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Analizador.cs" />
+     <Compile Include="Assets\Scripts\AnalizadorCool.cs" />
      <Compile Include="Assets\Scripts\AnalizadorRecursivo.cs" />
      <Compile Include="Assets\Scripts\AnalizadorSintactico.cs" />
      <Compile Include="Assets\Scripts\Changes.cs" />
-     <Compile Include="Assets\Scripts\LexerGit.cs" />
      <Compile Include="Assets\Scripts\TableItem.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

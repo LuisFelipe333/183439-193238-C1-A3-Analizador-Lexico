@@ -50,7 +50,7 @@ public class AnalizadorSintactico : MonoBehaviour
         //separateChains();
         if(mainInputField.GetComponent<Changes>().correctLex)
         {
-            Analizador parser = new Analizador(separateChains());
+            AnalizadorCool parser = new AnalizadorCool(separateChains());
             correctSintax=parser.NonRecursivePredictive();
             if(correctSintax)
                 outputText.text="Sintaxis correcta";
